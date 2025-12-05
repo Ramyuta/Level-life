@@ -1,0 +1,3 @@
+app/quests/page.tsx(144,11): error TS2322: Type '(categoryData: Omit<Category, "id" | "userId">) => Promise<Category>' is not assignable to type '(categoryData: Omit<Category, "id" | "userId">) => Promise<void>'.
+  Type 'Promise<Category>' is not assignable to type 'Promise<void>'.
+    Type 'Category' is not assignable to type 'void'.

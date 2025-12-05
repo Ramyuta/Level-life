@@ -1,0 +1,18 @@
+app/features/quests/hooks/useQuests.ts(39,7): error TS2552: Cannot find name 'setQuests'. Did you mean 'useQuests'?
+app/features/quests/hooks/useQuests.ts(89,5): error TS2552: Cannot find name 'setQuests'. Did you mean 'useQuests'?
+app/features/quests/hooks/useQuests.ts(89,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+app/features/quests/hooks/useQuests.ts(99,5): error TS2552: Cannot find name 'setQuests'. Did you mean 'useQuests'?
+app/features/quests/hooks/useQuests.ts(99,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+app/features/quests/hooks/useQuests.ts(100,17): error TS7006: Parameter 'q' implicitly has an 'any' type.
+app/features/quests/hooks/useQuests.ts(117,19): error TS2552: Cannot find name 'quests'. Did you mean 'quest'?
+app/features/quests/hooks/useQuests.ts(117,32): error TS7006: Parameter 'q' implicitly has an 'any' type.
+app/features/quests/hooks/useQuests.ts(228,32): error TS2304: Cannot find name 'quests'.
+app/features/quests/hooks/useQuests.ts(228,47): error TS7006: Parameter 'q' implicitly has an 'any' type.
+app/features/quests/hooks/useQuests.ts(242,12): error TS2304: Cannot find name 'quests'.
+app/features/quests/hooks/useQuests.ts(242,27): error TS7006: Parameter 'quest' implicitly has an 'any' type.
+app/features/quests/hooks/useQuests.ts(258,5): error TS18004: No value exists in scope for the shorthand property 'quests'. Either declare one or provide an initializer.
+app/quests/page.tsx(132,41): error TS7006: Parameter 'quest' implicitly has an 'any' type.
+app/quests/page.tsx(141,47): error TS7006: Parameter 'q' implicitly has an 'any' type.
+app/quests/page.tsx(143,6): error TS7006: Parameter 'q' implicitly has an 'any' type.
+app/quests/page.tsx(274,34): error TS7006: Parameter 'quest' implicitly has an 'any' type.
+app/quests/page.tsx(295,35): error TS7006: Parameter 'quest' implicitly has an 'any' type.

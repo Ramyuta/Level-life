@@ -1,0 +1,21 @@
+
+> level-life@0.1.0 build
+> next build
+
+  笆ｲ Next.js 14.2.5
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/lib/data/localStorageClient.ts
+Module not found: Can't resolve 'uuid'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/lib/data/dataClient.ts
+./app/features/quests/hooks/useQuests.ts
+./app/dashboard/page.tsx
+
+
+> Build failed because of webpack errors

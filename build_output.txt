@@ -1,0 +1,39 @@
+
+> level-life@0.1.0 build
+> next build
+
+  笆ｲ Next.js 14.2.5
+
+   Creating an optimized production build ...
+ 笨・Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/10) ...
+   Generating static pages (2/10) 
+笞・・Firebase is not configured. Missing environment variables. The app will run in local-only mode. To enable cloud features, add Firebase credentials to .env.local
+笞・・Firebase is not configured. Missing environment variables. The app will run in local-only mode. To enable cloud features, add Firebase credentials to .env.local
+笞・・Firebase is not configured. Missing environment variables. The app will run in local-only mode. To enable cloud features, add Firebase credentials to .env.local
+   Generating static pages (4/10) 
+   Generating static pages (7/10) 
+ 笨・Generating static pages (10/10)
+   Finalizing page optimization ...
+   Collecting build traces ...
+笞・・Firebase is not configured. Missing environment variables. The app will run in local-only mode. To enable cloud features, add Firebase credentials to .env.local
+
+Route (app)                              Size     First Load JS
+笏・笳・/                                    510 B          87.7 kB
+笏・笳・/_not-found                          137 B          87.4 kB
+笏・笳・/achievements                        992 B          88.2 kB
+笏・笳・/dashboard                           5.47 kB         256 kB
+笏・笳・/login                               3.33 kB         210 kB
+笏・笳・/manifest.webmanifest                0 B                0 B
+笏・笳・/quests                              5.51 kB         256 kB
+笏・笳・/settings                            3.15 kB         216 kB
++ First Load JS shared by all            87.2 kB
+  笏・chunks/23-ac4122220dcf2ac0.js        31.6 kB
+  笏・chunks/fd9d1056-00bb33a35b5f8051.js  53.6 kB
+  笏・other shared chunks (total)          1.95 kB
+
+
+笳・ (Static)  prerendered as static content
+

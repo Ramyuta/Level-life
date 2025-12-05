@@ -1,0 +1,23 @@
+
+> level-life@0.1.0 build
+> next build
+
+  笆ｲ Next.js 14.2.5
+
+   Creating an optimized production build ...
+ 笨・Compiled successfully
+   Linting and checking validity of types ...
+Failed to compile.
+
+./app/quests/page.tsx:144:11
+Type error: Type '(categoryData: Omit<Category, "id" | "userId">) => Promise<Category>' is not assignable to type '(categoryData: Omit<Category, "id" | "userId">) => Promise<void>'.
+  Type 'Promise<Category>' is not assignable to type 'Promise<void>'.
+    Type 'Category' is not assignable to type 'void'.
+
+  142 |         <CategoryManager
+  143 |           categories={categories}
+> 144 |           onCreateCategory={createCategory}
+      |           ^
+  145 |           onUpdateCategory={updateCategory}
+  146 |           onDeleteCategory={deleteCategory}
+  147 |         />

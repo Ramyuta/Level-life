@@ -1,0 +1,26 @@
+app/dashboard/page.tsx(184,19): error TS2322: Type '(id: string) => Promise<void>' is not assignable to type '(quest: Quest) => void'.
+  Types of parameters 'id' and 'quest' are incompatible.
+    Type 'Quest' is not assignable to type 'string'.
+app/features/quests/components/CategoryManager.tsx(51,16): error TS2345: Argument of type '{ id: string; name: string; color: string; icon: string; description: string; }' is not assignable to parameter of type 'Category'.
+  Type '{ id: string; name: string; color: string; icon: string; description: string; }' is missing the following properties from type 'Category': userId, defaultXp, isCustom
+app/features/quests/components/CategoryManager.tsx(54,13): error TS2345: Argument of type '{ name: string; color: string; icon: string; description: string; }' is not assignable to parameter of type 'Omit<Category, "id">'.
+  Type '{ name: string; color: string; icon: string; description: string; }' is missing the following properties from type 'Omit<Category, "id">': userId, defaultXp, isCustom
+app/features/quests/components/CategoryManager.tsx(65,29): error TS2339: Property 'description' does not exist on type 'Category'.
+app/features/quests/components/CategoryManager.tsx(220,27): error TS2339: Property 'description' does not exist on type 'Category'.
+app/features/quests/components/CategoryManager.tsx(222,31): error TS2339: Property 'description' does not exist on type 'Category'.
+app/features/quests/components/QuestForm.tsx(37,18): error TS2339: Property 'schedule' does not exist on type 'Quest'.
+app/features/quests/components/QuestForm.tsx(45,51): error TS2551: Property 'notes' does not exist on type 'Quest'. Did you mean 'note'?
+app/features/quests/components/QuestForm.tsx(63,52): error TS2322: Type '{ current: number; longest: number; } | { current: number; max: number; }' is not assignable to type '{ current: number; longest: number; } | undefined'.
+  Object literal may only specify known properties, and 'max' does not exist in type '{ current: number; longest: number; }'.
+app/features/quests/hooks/useQuests.ts(123,23): error TS2339: Property 'xpPerCompletion' does not exist on type 'Quest'.
+app/features/quests/hooks/useQuests.ts(130,32): error TS2339: Property 'xpPerCompletion' does not exist on type 'Quest'.
+app/features/quests/hooks/useQuests.ts(182,23): error TS2339: Property 'xpPerCompletion' does not exist on type 'Quest'.
+app/features/timer/components/Timer.tsx(40,48): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+app/features/timer/components/Timer.tsx(72,27): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/quests/page.tsx(230,11): error TS2322: Type '{ categories: Category[]; onCreateCategory: (categoryData: Omit<Category, "id" | "userId">) => Promise<Category>; onUpdateCategory: (id: string, updates: Partial<...>) => Promise<...>; onDeleteCategory: (id: string) => Promise<...>; }' is not assignable to type 'IntrinsicAttributes & CategoryManagerProps'.
+  Property 'onCreateCategory' does not exist on type 'IntrinsicAttributes & CategoryManagerProps'.
+app/quests/page.tsx(279,19): error TS2322: Type '(id: string) => Promise<void>' is not assignable to type '(quest: Quest) => void'.
+app/quests/page.tsx(300,17): error TS2322: Type '(id: string) => Promise<void>' is not assignable to type '(quest: Quest) => void'.
+  Types of parameters 'id' and 'quest' are incompatible.
+    Type 'Quest' is not assignable to type 'string'.

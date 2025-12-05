@@ -1,0 +1,34 @@
+  笆ｲ Next.js 14.2.5
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+> [PWA] Compile server
+> [PWA] Compile server
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: C:\Users\yuuta\level-life\node_modules\next-pwa\register.js
+> [PWA] Service worker: C:\Users\yuuta\level-life\public\sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+ 笨・Compiled successfully
+   Linting and checking validity of types ...
+Failed to compile.
+
+./app/lib/store.ts:436:13
+Type error: Argument of type '(state: StoreState) => { battle: { monster: { currentHp: number; id: string; type: MonsterType; name: string; maxHp: number; level: number; attack: number; xpReward: number; goldReward: number; dropRate: number; } | null; isActive: boolean; logs: (BattleLog | { ...; })[]; turn: "player" | "monster"; lastActionAt: st...' is not assignable to parameter of type 'StoreState | Partial<StoreState> | ((state: StoreState) => StoreState | Partial<StoreState>)'.
+  Type '(state: StoreState) => { battle: { monster: { currentHp: number; id: string; type: MonsterType; name: string; maxHp: number; level: number; attack: number; xpReward: number; goldReward: number; dropRate: number; } | null; isActive: boolean; logs: (BattleLog | { ...; })[]; turn: "player" | "monster"; lastActionAt: st...' is not assignable to type '(state: StoreState) => StoreState | Partial<StoreState>'.
+    Type '{ battle: { monster: { currentHp: number; id: string; type: MonsterType; name: string; maxHp: number; level: number; attack: number; xpReward: number; goldReward: number; dropRate: number; } | null; isActive: boolean; logs: (BattleLog | { ...; })[]; turn: "player" | "monster"; lastActionAt: string; }; }' is not assignable to type 'StoreState | Partial<StoreState>'.
+      Type '{ battle: { monster: { currentHp: number; id: string; type: MonsterType; name: string; maxHp: number; level: number; attack: number; xpReward: number; goldReward: number; dropRate: number; } | null; isActive: boolean; logs: (BattleLog | { ...; })[]; turn: "player" | "monster"; lastActionAt: string; }; }' is not assignable to type 'Partial<StoreState>'.
+        The types of 'battle.logs' are incompatible between these types.
+          Type '(BattleLog | { id: string; message: string; type: string; value: any; timestamp: string; })[]' is not assignable to type 'BattleLog[]'.
+            Type 'BattleLog | { id: string; message: string; type: string; value: any; timestamp: string; }' is not assignable to type 'BattleLog'.
+              Type '{ id: string; message: string; type: string; value: any; timestamp: string; }' is not assignable to type 'BattleLog'.
+                Types of property 'type' are incompatible.
+                  Type 'string' is not assignable to type '"damage" | "heal" | "info" | "critical"'.
+
+  434 |         }
+  435 |
+> 436 |         set((state) => ({
+      |             ^
+  437 |           battle: {
+  438 |             ...state.battle,
+  439 |             monster: state.battle.monster

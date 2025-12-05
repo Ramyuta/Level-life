@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+* {
+  border-color: rgb(51 65 85);
+}
+
+body {
+  @apply bg-slate-900 text-slate-100;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+html {
+  @apply bg-slate-900;
+}

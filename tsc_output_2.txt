@@ -1,0 +1,51 @@
+app/dashboard/page.tsx(184,19): error TS2322: Type '(id: string) => Promise<void>' is not assignable to type '(quest: Quest) => void'.
+  Types of parameters 'id' and 'quest' are incompatible.
+    Type 'Quest' is not assignable to type 'string'.
+app/features/quests/components/CategoryManager.tsx(5,15): error TS2305: Module '"../../../lib/types"' has no exported member 'QuestCategory'.
+app/features/quests/components/CategoryManager.tsx(52,19): error TS2345: Argument of type '"categoryManager.toast.updateSuccess"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/CategoryManager.tsx(55,19): error TS2345: Argument of type '"categoryManager.toast.createSuccess"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/CategoryManager.tsx(74,18): error TS2345: Argument of type '"categoryManager.confirm.deleteTitle"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/CategoryManager.tsx(75,20): error TS2345: Argument of type '"categoryManager.confirm.deleteMessage"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/CategoryManager.tsx(76,24): error TS2345: Argument of type '"categoryManager.confirm.deleteButton"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/CategoryManager.tsx(81,19): error TS2345: Argument of type '"categoryManager.toast.deleteSuccess"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/CategoryManager.tsx(109,16): error TS2345: Argument of type '"categoryManager.add"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/QuestCard.tsx(82,24): error TS2339: Property 'xpReward' does not exist on type 'Quest'.
+app/features/quests/components/QuestCard.tsx(84,20): error TS2339: Property 'streak' does not exist on type 'Quest'.
+app/features/quests/components/QuestCard.tsx(84,36): error TS2339: Property 'streak' does not exist on type 'Quest'.
+app/features/quests/components/QuestCard.tsx(86,27): error TS2339: Property 'streak' does not exist on type 'Quest'.
+app/features/quests/components/QuestCard.tsx(86,46): error TS2345: Argument of type '"questCard.streak"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/QuestCard.tsx(112,22): error TS2345: Argument of type '"questCard.startTimer"' is not assignable to parameter of type 'TranslationKey'.
+app/features/quests/components/QuestForm.tsx(4,22): error TS2305: Module '"../../../lib/types"' has no exported member 'QuestCategory'.
+app/features/quests/components/QuestForm.tsx(37,18): error TS2339: Property 'schedule' does not exist on type 'Quest'.
+app/features/quests/components/QuestForm.tsx(39,57): error TS2339: Property 'xpReward' does not exist on type 'Quest'.
+app/features/quests/components/QuestForm.tsx(45,51): error TS2551: Property 'notes' does not exist on type 'Quest'. Did you mean 'note'?
+app/features/quests/components/QuestForm.tsx(57,7): error TS2353: Object literal may only specify known properties, and 'schedule' does not exist in type 'Omit<Quest, "id" | "createdAt" | "userId" | "updatedAt">'.
+app/features/quests/components/QuestForm.tsx(63,28): error TS2339: Property 'streak' does not exist on type 'Quest'.
+app/features/timer/components/Timer.tsx(25,5): error TS2339: Property 'startSession' does not exist on type 'TimerState'.
+app/features/timer/components/Timer.tsx(26,5): error TS2339: Property 'pauseSession' does not exist on type 'TimerState'.
+app/features/timer/components/Timer.tsx(27,5): error TS2339: Property 'resumeSession' does not exist on type 'TimerState'.
+app/features/timer/components/Timer.tsx(28,5): error TS2339: Property 'stopSession' does not exist on type 'TimerState'.
+app/features/timer/components/Timer.tsx(40,48): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+app/login/page.tsx(8,11): error TS2339: Property 'login' does not exist on type 'AuthContextType'.
+app/login/page.tsx(8,43): error TS2339: Property 'loginAsGuest' does not exist on type 'AuthContextType'.
+app/login/page.tsx(8,57): error TS2339: Property 'error' does not exist on type 'AuthContextType'.
+app/login/page.tsx(31,26): error TS2345: Argument of type '"login.subtitleLogin"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(31,53): error TS2345: Argument of type '"login.subtitleSignup"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(52,32): error TS2345: Argument of type '"login.displayNamePlaceholder"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(67,30): error TS2345: Argument of type '"login.emailPlaceholder"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(81,30): error TS2345: Argument of type '"login.passwordPlaceholder"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(92,19): error TS2345: Argument of type '"common.loading"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(94,21): error TS2345: Argument of type '"login.loginButton"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(95,21): error TS2345: Argument of type '"login.signupButton"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(134,16): error TS2345: Argument of type '"login.googleButton"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(142,16): error TS2345: Argument of type '"login.guestButton"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(147,24): error TS2345: Argument of type '"login.noAccount"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(147,47): error TS2345: Argument of type '"login.hasAccount"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(152,26): error TS2345: Argument of type '"login.signupLink"' is not assignable to parameter of type 'TranslationKey'.
+app/login/page.tsx(152,50): error TS2345: Argument of type '"login.loginLink"' is not assignable to parameter of type 'TranslationKey'.
+app/quests/page.tsx(230,11): error TS2322: Type '{ categories: Category[]; onCreateCategory: (categoryData: Omit<Category, "id" | "userId">) => Promise<Category>; onUpdateCategory: (id: string, updates: Partial<...>) => Promise<...>; onDeleteCategory: (id: string) => Promise<...>; }' is not assignable to type 'IntrinsicAttributes & CategoryManagerProps'.
+  Property 'onCreateCategory' does not exist on type 'IntrinsicAttributes & CategoryManagerProps'.
+app/quests/page.tsx(279,19): error TS2322: Type '(id: string) => Promise<void>' is not assignable to type '(quest: Quest) => void'.
+app/quests/page.tsx(300,17): error TS2322: Type '(id: string) => Promise<void>' is not assignable to type '(quest: Quest) => void'.
+  Types of parameters 'id' and 'quest' are incompatible.
+    Type 'Quest' is not assignable to type 'string'.

@@ -1,0 +1,14 @@
+app/components/ui/ConfirmDialog.tsx(1,3): error TS1128: Declaration or statement expected.
+app/components/ui/ConfirmDialog.tsx(2,1): error TS1128: Declaration or statement expected.
+app/features/timer/components/Timer.tsx(6,11): error TS1128: Declaration or statement expected.
+app/features/timer/components/Timer.tsx(6,13): error TS1109: Expression expected.
+app/features/timer/components/Timer.tsx(7,9): error TS1109: Expression expected.
+app/features/timer/components/Timer.tsx(7,10): error TS1128: Declaration or statement expected.
+app/features/timer/components/Timer.tsx(8,7): error TS1128: Declaration or statement expected.
+app/features/timer/components/Timer.tsx(32,5): error TS1128: Declaration or statement expected.
+app/features/timer/components/Timer.tsx(33,3): error TS1109: Expression expected.
+app/features/timer/components/Timer.tsx(34,1): error TS1128: Declaration or statement expected.
+app/login/page.tsx(1,7): error TS1128: Declaration or statement expected.
+app/login/page.tsx(2,5): error TS1109: Expression expected.
+app/login/page.tsx(3,3): error TS1109: Expression expected.
+app/login/page.tsx(4,1): error TS1128: Declaration or statement expected.
