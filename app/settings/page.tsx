@@ -24,6 +24,7 @@ import AvatarSelector from "../features/user/components/AvatarSelector";
 import AvatarCustomizer from "../components/avatar/AvatarCustomizer";
 import type { AvatarId } from "../lib/types";
 import type { CustomAvatar } from "../lib/customAvatarTypes";
+import ThemeToggle from "../components/theme/ThemeToggle";
 
 export default function SettingsPage() {
   const {
@@ -394,6 +395,14 @@ export default function SettingsPage() {
             </p>
           )}
         </div>
+      </PageSectionCard>
+
+      {/* Theme Selection */}
+      <PageSectionCard
+        title="テーマ設定"
+        subtitle="アプリの外観を選択してください"
+      >
+        <ThemeToggle />
       </PageSectionCard>
 
       {/* Notification Settings */}
