@@ -24,6 +24,7 @@ import FloatingActionButton from "../components/mobile/FloatingActionButton";
 import Avatar from "../components/ui/Avatar";
 import OnboardingModal from "../components/onboarding/OnboardingModal";
 import AdBanner from "../components/ads/AdBanner";
+import WeeklyReport from "../components/reports/WeeklyReport";
 import dynamic from "next/dynamic";
 
 const AIAdvisor = dynamic(() => import("../features/ai/components/AIAdvisor"), {
@@ -185,24 +186,14 @@ export default function DashboardPage() {
         </div>
 
         {/* Today's Quests */}
-        <PageSectionCard
-          title={t("dashboard.todaysQuests")}
-          action={
-            <button
-              onClick={() => router.push("/quests")}
-              className="rounded-xl bg-indigo-500/20 px-4 py-2 text-sm font-medium text-indigo-300 transition-all hover:bg-indigo-500/30"
-            >
-              {t("dashboard.viewAll")}
-            </button>
-          }
-        >
+        <PageSectionCard title={t("dashboard.todaysQuests")}>
           {loading ? (
-            <div className="flex h-32 items-center justify-center">
-              <LoadingSpinner size="lg" />
+            <div className="flex h-64 items-center justify-center">
+              <LoadingSpinner />
             </div>
           ) : todaysQuests.length === 0 ? (
             <EmptyState
-              icon="✨"
+              icon="🎯"
               title={t("dashboard.noQuestsTitle")}
               description={t("dashboard.noQuestsDesc")}
               actionLabel={t("dashboard.createQuest")}
