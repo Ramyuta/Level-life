@@ -6,12 +6,15 @@ import { useFriends } from "../hooks/useFriends";
 import { UserMinus, Loader2, Users } from "lucide-react";
 import { ConfirmDialog } from "../../../components/ui/ConfirmDialog";
 import Avatar from "../../../components/ui/Avatar";
+import FriendProfileModal from "./FriendProfileModal";
+import type { Friend } from "../../../lib/types";
 
 export default function FriendList() {
   const { t } = useTranslation();
   const { friends, isLoading, removeFriend } = useFriends();
   const [removingId, setRemovingId] = useState<string | null>(null);
   const [confirmRemove, setConfirmRemove] = useState<string | null>(null);
+  const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
 
   const handleRemove = async (friendId: string) => {
     try {
@@ -55,7 +58,10 @@ export default function FriendList() {
             key={friend.uid}
             className="flex items-center justify-between rounded-xl bg-slate-900/60 p-4 ring-1 ring-white/5 transition-all hover:bg-slate-800/60"
           >
-            <div className="flex items-center gap-4">
+            <button
+              onClick={() => setSelectedFriend(friend)}
+              className="flex flex-1 items-center gap-4 text-left"
+            >
               <Avatar
                 avatarId={friend.avatarId}
                 name={friend.displayName}
@@ -67,7 +73,7 @@ export default function FriendList() {
                   {t("social.friendCode")}: {friend.friendCode}
                 </p>
               </div>
-            </div>
+            </button>
 
             <button
               onClick={() => setConfirmRemove(friend.uid)}
@@ -97,6 +103,11 @@ export default function FriendList() {
           isDangerous={true}
         />
       )}
+
+      <FriendProfileModal
+        friend={selectedFriend}
+        onClose={() => setSelectedFriend(null)}
+      />
     </>
   );
 }
