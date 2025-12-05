@@ -111,6 +111,7 @@ export default function DashboardPage() {
                 className="transition-transform hover:scale-105"
               >
                 <Avatar
+                  customAvatar={userProfile.customAvatar}
                   avatarId={userProfile.avatarId}
                   photoURL={userProfile.photoURL}
                   name={userProfile.displayName}

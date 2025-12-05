@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import { AVATARS, type AvatarId } from "../../lib/types";
+import type { CustomAvatar } from "../../lib/customAvatarTypes";
+import CustomAvatarDisplay from "../avatar/CustomAvatarDisplay";
 
 interface AvatarProps {
   avatarId?: string;
+  customAvatar?: CustomAvatar;
   photoURL?: string | null;
   name?: string | null;
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
@@ -19,16 +22,35 @@ const SIZES = {
   "2xl": "h-40 w-40",
 };
 
+const SIZE_PX = {
+  sm: 32,
+  md: 48,
+  lg: 80,
+  xl: 128,
+  "2xl": 160,
+};
+
 export default function Avatar({
   avatarId,
+  customAvatar,
   photoURL,
   name,
   size = "md",
   className = "",
 }: AvatarProps) {
   const sizeClass = SIZES[size];
+  const sizePx = SIZE_PX[size];
 
-  // 1. Priority: Selected Avatar
+  // 1. Priority: Custom Avatar
+  if (customAvatar) {
+    return (
+      <div className={`relative overflow-hidden rounded-full bg-slate-700 ring-2 ring-white/10 ${sizeClass} ${className}`}>
+        <CustomAvatarDisplay avatar={customAvatar} size={sizePx} />
+      </div>
+    );
+  }
+
+  // 2. Priority: Selected Avatar
   if (avatarId && avatarId in AVATARS) {
     return (
       <div
@@ -44,7 +66,7 @@ export default function Avatar({
     );
   }
 
-  // 2. Fallback: Google Photo URL
+  // 3. Fallback: Google Photo URL
   if (photoURL) {
     return (
       <div
@@ -60,14 +82,14 @@ export default function Avatar({
     );
   }
 
-  // 3. Fallback: Initials
+  // 4. Fallback: Initials
   const initials = name
     ? name
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
-        .slice(0, 2)
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2)
     : "?";
 
   return (

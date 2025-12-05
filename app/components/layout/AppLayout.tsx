@@ -118,6 +118,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               className="flex items-center gap-3 p-3 rounded-xl hover:bg-muted transition-all"
             >
               <Avatar
+                customAvatar={userProfile.customAvatar}
                 avatarId={userProfile.avatarId}
                 photoURL={userProfile.photoURL}
                 name={userProfile.displayName}
