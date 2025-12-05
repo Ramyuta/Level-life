@@ -19,9 +19,11 @@ import { useTheme } from "next-themes";
 import { NotificationSettings } from "../components/pwa/NotificationSettings";
 import { usePremium } from "../hooks/usePremium";
 import PremiumModal from "../features/premium/components/PremiumModal";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Palette } from "lucide-react";
 import AvatarSelector from "../features/user/components/AvatarSelector";
+import AvatarCustomizer from "../components/avatar/AvatarCustomizer";
 import type { AvatarId } from "../lib/types";
+import type { CustomAvatar } from "../lib/customAvatarTypes";
 
 export default function SettingsPage() {
   const {
@@ -39,6 +41,7 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
   const { isPremium } = usePremium();
   const [showPremiumModal, setShowPremiumModal] = useState(false);
+  const [showCustomizer, setShowCustomizer] = useState(false);
   const [isChangingMode, setIsChangingMode] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
@@ -210,14 +213,22 @@ export default function SettingsPage() {
       </PageSectionCard>
 
       {/* Customize Profile */}
-      {/* Customize Profile */}
       <PageSectionCard title={t("settings.customizeProfile")}>
         <div className="space-y-4">
-          <p className="text-sm text-slate-400">{t("settings.chooseAvatar")}</p>
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-slate-400">{t("settings.chooseAvatar")}</p>
+            <button
+              onClick={() => setShowCustomizer(true)}
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-2 text-sm font-bold text-white shadow-lg shadow-purple-500/25 transition-all hover:scale-105"
+            >
+              <Palette className="h-4 w-4" />
+              カスタムアバター作成
+            </button>
+          </div>
           <AvatarSelector
             selectedId={userProfile?.avatarId}
             onSelect={async (id: AvatarId) => {
-              await updateUserProfile({ avatarId: id });
+              await updateUserProfile({ avatarId: id, customAvatar: undefined });
               showToast(t("settings.profileUpdated"), "success");
             }}
           />
@@ -258,21 +269,19 @@ export default function SettingsPage() {
         <div className="flex gap-3">
           <button
             onClick={() => setLanguage("ja")}
-            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${
-              language === "ja"
-                ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
-                : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
-            }`}
+            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${language === "ja"
+              ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
+              : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
+              }`}
           >
             🇯🇵 日本語
           </button>
           <button
             onClick={() => setLanguage("en")}
-            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${
-              language === "en"
-                ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
-                : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
-            }`}
+            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${language === "en"
+              ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
+              : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
+              }`}
           >
             🇬🇧 English
           </button>
@@ -346,11 +355,10 @@ export default function SettingsPage() {
             </div>
           </label>
           <label
-            className={`flex items-center gap-3 ${
-              firebaseAvailable && firebaseUser
-                ? "cursor-pointer"
-                : "cursor-not-allowed opacity-50"
-            }`}
+            className={`flex items-center gap-3 ${firebaseAvailable && firebaseUser
+              ? "cursor-pointer"
+              : "cursor-not-allowed opacity-50"
+              }`}
           >
             <input
               type="radio"
@@ -398,31 +406,28 @@ export default function SettingsPage() {
         <div className="flex gap-3">
           <button
             onClick={() => setTheme("light")}
-            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${
-              theme === "light"
-                ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
-                : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
-            }`}
+            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${theme === "light"
+              ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
+              : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
+              }`}
           >
             ☀️ {t("settings.themeLight")}
           </button>
           <button
             onClick={() => setTheme("dark")}
-            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${
-              theme === "dark"
-                ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
-                : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
-            }`}
+            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${theme === "dark"
+              ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
+              : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
+              }`}
           >
             🌙 {t("settings.themeDark")}
           </button>
           <button
             onClick={() => setTheme("system")}
-            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${
-              theme === "system"
-                ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
-                : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
-            }`}
+            className={`flex-1 rounded-xl px-4 py-3 font-semibold transition-all ${theme === "system"
+              ? "bg-indigo-600 text-white ring-2 ring-indigo-500"
+              : "bg-slate-700/80 text-slate-300 hover:bg-slate-700"
+              }`}
           >
             💻 {t("settings.themeSystem")}
           </button>
@@ -472,6 +477,19 @@ export default function SettingsPage() {
           </button>
         </PageSectionCard>
       )}
+
+      {/* Avatar Customizer Modal */}
+      {showCustomizer && (
+        <AvatarCustomizer
+          initialAvatar={userProfile?.customAvatar}
+          onSave={async (avatar: CustomAvatar) => {
+            await updateUserProfile({ customAvatar: avatar, avatarId: undefined });
+            showToast("カスタムアバターを保存しました", "success");
+          }}
+          onClose={() => setShowCustomizer(false)}
+        />
+      )}
+
       <PremiumModal
         isOpen={showPremiumModal}
         onClose={() => setShowPremiumModal(false)}

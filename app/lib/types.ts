@@ -177,9 +177,10 @@ export interface UserProfile {
   uid: string;
   displayName: string | null;
   email: string | null;
-  photoURL: string | null;
-  friendCode: string;
+  photoURL?: string | null;
   avatarId?: string;
+  customAvatar?: import('./customAvatarTypes').CustomAvatar;
+  friendCode: string;
   createdAt: string;
 }
 
