@@ -25,6 +25,7 @@ import Avatar from "../components/ui/Avatar";
 import OnboardingModal from "../components/onboarding/OnboardingModal";
 import AdBanner from "../components/ads/AdBanner";
 import WeeklyReport from "../components/reports/WeeklyReport";
+import DailyChallengesCard from "../components/gamification/DailyChallengesCard";
 import dynamic from "next/dynamic";
 
 const AIAdvisor = dynamic(() => import("../features/ai/components/AIAdvisor"), {
@@ -174,6 +175,12 @@ export default function DashboardPage() {
 
         {/* Weekly Stats */}
         <WeeklyStatsCard />
+
+        {/* Daily Challenges */}
+        <DailyChallengesCard />
+
+        {/* Weekly Report */}
+        <WeeklyReport />
 
         {/* AI Advisor */}
         <AIAdvisor />
