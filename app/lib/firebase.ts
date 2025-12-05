@@ -2,7 +2,7 @@
 
 import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
 import { getAuth, type Auth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, type Firestore } from "firebase/firestore";
+import { getFirestore, type Firestore, enableIndexedDbPersistence } from "firebase/firestore";
 
 // Firebase configuration from environment variables
 const firebaseConfig = {
@@ -41,15 +41,27 @@ if (firebaseAvailable) {
     auth = getAuth(app);
     db = getFirestore(app);
     googleProvider = new GoogleAuthProvider();
-    console.log("✅ Firebase initialized successfully");
+
+    // Enable offline persistence
+    if (db && typeof window !== 'undefined') {
+      enableIndexedDbPersistence(db).catch((err) => {
+        if (err.code === 'failed-precondition') {
+          console.warn('⚠️ Multiple tabs open, persistence can only be enabled in one tab at a time.');
+        } else if (err.code === 'unimplemented') {
+          console.warn('⚠️ The current browser does not support offline persistence');
+        }
+      });
+    }
+
+    console.log("✅ Firebase initialized successfully with offline persistence");
   } catch (error) {
     console.error("❌ Error initializing Firebase:", error);
   }
 } else {
   console.warn(
     "⚠️ Firebase is not configured. Missing environment variables. " +
-      "The app will run in local-only mode. " +
-      "To enable cloud features, add Firebase credentials to .env.local"
+    "The app will run in local-only mode. " +
+    "To enable cloud features, add Firebase credentials to .env.local"
   );
 }
 

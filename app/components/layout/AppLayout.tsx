@@ -24,6 +24,7 @@ import { InstallPrompt } from "../pwa/InstallPrompt";
 import { OfflineIndicator } from "../pwa/OfflineIndicator";
 import BottomNav from "../mobile/BottomNav";
 import Avatar from "../ui/Avatar";
+import SyncStatusIndicator from "../sync/SyncStatusIndicator";
 
 const NAV_ITEMS = [
   {
@@ -202,6 +203,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       {/* PWA Components */}
       <OfflineIndicator />
       <InstallPrompt />
+
+      {/* Sync Status Indicator */}
+      <SyncStatusIndicator />
     </div>
   );
 }
