@@ -25,6 +25,7 @@ import { OfflineIndicator } from "../pwa/OfflineIndicator";
 import BottomNav from "../mobile/BottomNav";
 import Avatar from "../ui/Avatar";
 import SyncStatusIndicator from "../sync/SyncStatusIndicator";
+import { useNotificationTriggers } from "../../hooks/useNotificationTriggers";
 
 const NAV_ITEMS = [
   {
@@ -79,6 +80,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { t } = useTranslation();
   const { userProfile } = useAuth();
+
+  // Initialize notification triggers
+  useNotificationTriggers();
 
   return (
     <div className="min-h-screen bg-background text-foreground flex">
