@@ -27,6 +27,7 @@ import AdBanner from "../components/ads/AdBanner";
 import WeeklyReport from "../components/reports/WeeklyReport";
 import DailyChallengesCard from "../components/gamification/DailyChallengesCard";
 import WeeklyBossCard from "../components/gamification/WeeklyBossCard";
+import SeasonalBanner from "../components/gamification/SeasonalBanner";
 import dynamic from "next/dynamic";
 
 const AIAdvisor = dynamic(() => import("../features/ai/components/AIAdvisor"), {
@@ -149,6 +150,9 @@ export default function DashboardPage() {
           </div>
           <ProgressBar progress={progress} />
         </PageSectionCard>
+
+        {/* Seasonal Banner */}
+        <SeasonalBanner />
 
         {/* Today's Progress */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
