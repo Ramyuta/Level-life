@@ -46,6 +46,7 @@ export default function AvatarCustomizer({
             accessoryColor: '#000000',
             clothing: ['tshirt', 'hoodie', 'shirt', 'sweater'][Math.floor(Math.random() * 4)] as any,
             clothingColor: CLOTHING_COLORS[Math.floor(Math.random() * CLOTHING_COLORS.length)],
+            backgroundColor: ['#F3F4F6', '#FEE2E2', '#FFEDD5', '#FEF3C7', '#D1FAE5', '#CFFAFE', '#DBEAFE', '#E0E7FF', '#EDE9FE', '#FCE7F3', '#FFE4E6', '#1F2937', '#1E1B4B'][Math.floor(Math.random() * 13)],
         };
         setAvatar(randomAvatar);
     };
@@ -74,8 +75,8 @@ export default function AvatarCustomizer({
         <button
             onClick={onClick}
             className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${isSelected
-                    ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/25'
-                    : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/25'
+                : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                 }`}
         >
             {label}
@@ -122,8 +123,8 @@ export default function AvatarCustomizer({
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`px-4 py-2 font-semibold transition-all ${activeTab === tab
-                                            ? 'border-b-2 border-indigo-500 text-white'
-                                            : 'text-slate-400 hover:text-slate-300'
+                                        ? 'border-b-2 border-indigo-500 text-white'
+                                        : 'text-slate-400 hover:text-slate-300'
                                         }`}
                                 >
                                     {tab === 'face' && '👤 顔'}
@@ -318,6 +319,15 @@ export default function AvatarCustomizer({
                                         colors={CLOTHING_COLORS}
                                         value={avatar.clothingColor}
                                         onChange={(color) => updateAvatar({ clothingColor: color })}
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="mb-2 block text-sm font-semibold text-white">背景色</label>
+                                    <ColorPicker
+                                        colors={['#F3F4F6', '#FEE2E2', '#FFEDD5', '#FEF3C7', '#D1FAE5', '#CFFAFE', '#DBEAFE', '#E0E7FF', '#EDE9FE', '#FCE7F3', '#FFE4E6', '#1F2937', '#1E1B4B']}
+                                        value={avatar.backgroundColor || '#F3F4F6'}
+                                        onChange={(color) => updateAvatar({ backgroundColor: color })}
                                     />
                                 </div>
                             </div>

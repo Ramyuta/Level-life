@@ -388,6 +388,11 @@ export default function CustomAvatarDisplay({
             className={className}
             xmlns="http://www.w3.org/2000/svg"
         >
+            {/* Background */}
+            {avatar.backgroundColor && (
+                <rect x="0" y="0" width="200" height="220" rx="20" fill={avatar.backgroundColor} />
+            )}
+
             {/* Clothing (background layer) */}
             <g>{renderClothing()}</g>
 
